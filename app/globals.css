@@ -25,3 +25,21 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
+
+.waka-card {
+  min-height: 370px;
+  min-width: 320px;
+}
+
+.project-card {
+  min-height: 170px;
+  min-width: 320px;
+}
+
+.main-cards-container {
+  max-height: 370px;
+}
+
+.project-cards-container {
+  max-width: 1000px;
+}

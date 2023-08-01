@@ -16,12 +16,12 @@ function ProjectCard({
   const iconSize = 30;
 
   const stackMap: { [name: string]: React.JSX.Element } = {
-    next: <TbBrandNextjs size={iconSize} color="#D4D4D8" />,
-    react: <FaReact size={iconSize} color="#67E8F9" />,
-    tailwind: <BiLogoTailwindCss size={iconSize} color="#5EEAD4" />,
-    node: <FaNodeJs size={iconSize} color="#BEF264" />,
-    scss: <FaSass size={iconSize} color="#FDA4AF" />,
-    typescript: <TbBrandTypescript size={iconSize} color="#7DD3FC" />,
+    Next: <TbBrandNextjs size={iconSize} color="#D4D4D8" />,
+    React: <FaReact size={iconSize} color="#67E8F9" />,
+    Tailwind: <BiLogoTailwindCss size={iconSize} color="#5EEAD4" />,
+    Node: <FaNodeJs size={iconSize} color="#BEF264" />,
+    Scss: <FaSass size={iconSize} color="#FDA4AF" />,
+    Typescript: <TbBrandTypescript size={iconSize} color="#7DD3FC" />,
   };
 
   return (
@@ -37,8 +37,8 @@ function ProjectCard({
               opacity={!githubHREF ? 0.25 : undefined}
               className="ml-3"
             />
-            <div className={`opacity-0 ${githubHREF ? "group-hover:opacity-100" : undefined} absolute bg-accent text-xs rounded-md p-2 shadow-md z-50 pointer-events-none`}>
-              github
+            <div className={`opacity-0 ${githubHREF ? "group-hover:opacity-100" : undefined} absolute bg-accent text-xs rounded-md p-2 shadow-md z-50 pointer-events-none transition-all duration-300`}>
+              GitHub
             </div>
           </a>
           <a rel="noreferrer" target="blank" href={siteHREF} className="group">
@@ -47,8 +47,8 @@ function ProjectCard({
               opacity={!siteHREF ? 0.25 : undefined}
               className="ml-3"
             />
-            <div className={`opacity-0 ${siteHREF ? "group-hover:opacity-100" : undefined} absolute bg-accent text-xs rounded-md p-2 shadow-md z-50 pointer-events-none`}>
-              website
+            <div className={`opacity-0 ${siteHREF ? "group-hover:opacity-100" : undefined} absolute bg-accent text-xs rounded-md p-2 shadow-md z-50 pointer-events-none transition-all duration-300`}>
+              Website
             </div>
           </a>
         </div>

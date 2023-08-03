@@ -80,7 +80,7 @@ function ProjectCard({ title, githubHREF, siteHREF, stack }: ProjectData) {
             {stack.map((tech, i) => (
               <div key={i} className="my-1 relative flex justify-start">
                 {stackMap[tech]}
-                <div className="bg-gradient-to-r from-theme-accent from-25% to-theme-primary shadow-md w-fit h-full absolute top-0 -z-10 pl-1.5 pr-40 rounded-l-sm flex items-center text-xs font-bold font-sans transition-all duration-300 hover:-ml-[5.75rem] pointer-events-auto">
+                <div className="bg-gradient-to-r from-theme-accent from-25% to-theme-primary shadow-md w-fit h-full absolute top-0 -z-10 pl-1.5 pr-40 rounded-l-sm flex items-center text-xs font-bold font-sans transition-all duration-300 hover:-ml-[5.5rem] pointer-events-auto">
                   {tech}
                 </div>
               </div>

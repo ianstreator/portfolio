@@ -1,6 +1,10 @@
 export type WakaData = {
   data: {
-    languages: {};
+    languages: {
+        name:string;
+        percent:number;
+        text:string;
+    }[];
   };
 };
 

@@ -16,30 +16,33 @@
   }
 }
 
+
+
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  background-color: #0F172A;
 }
 
 .waka-card {
   min-height: 370px;
+  max-height: 370px;
   min-width: 320px;
+  max-width: 320px;
 }
 
 .project-card {
   min-height: 170px;
   min-width: 320px;
-}
-
-.main-cards-container {
-  max-height: 370px;
+  max-width: 320px;
 }
 
 .project-cards-container {
+  min-width: 1000px;
+  width: 1000px;
   max-width: 1000px;
+}
+
+.cards-max {
+  min-width: 1000px !important;
+  max-width: 1000px !important;
 }

@@ -7,17 +7,16 @@ module.exports = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        righteous: "Righteous",
+      },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
-    },
-  },
-  daisyui: {
-    themes: [
-      {
-        space: {
+      colors: {
+        theme: {
           primary: "#0F172A",
 
           secondary: "#475569",
@@ -25,19 +24,19 @@ module.exports = {
           accent: "#334155",
 
           neutral: "#CBD5E1",
-
-          "base-100": "#423e56",
-
-          info: "#6c96d5",
-
-          success: "#57e5c4",
-
-          warning: "#efb343",
-
-          error: "#ee4f49",
+        },
+        300: {
+          indigo: "#A5B4FC",
+          teal: "#5EEAD4",
+          sky: "#7DD3FC",
+          cyan: "#67E8F9",
+          red: "#FCA5A5",
+          yellow: "#FDE047",
+          green: "#86EFAC",
+          grey: "#D4D4D8",
         },
       },
-    ],
+    },
   },
-  plugins: [require("daisyui")],
+  plugins: [],
 };

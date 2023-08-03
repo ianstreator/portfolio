@@ -65,7 +65,10 @@ function ProjectCard({ title, githubHREF, siteHREF, stack }: ProjectData) {
         <div className="w-3/5 p-3 flex items-center justify-center">
           <Image
             priority
-            src={`/desktop-${title.replace("'", "").replace(" ", "-")}.webp`}
+            src={`/desktop-${title
+              .replace("'", "")
+              .replace(" ", "-")
+              .toLowerCase()}.webp`}
             width={200}
             height={200}
             alt={title}

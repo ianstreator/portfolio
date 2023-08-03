@@ -37,23 +37,21 @@ export default async function Home() {
     <main className="flex min-h-screen bg-gradient-to-b from-theme-primary to-theme-secondary flex-col items-center overflow-hidden">
       <div className="w-full mt-4 bg-gradient-to-r from-theme-neutral/25 to-theme-neutral/0">
         <div className="w-fit p-4">
-          <h1 className="text-4xl font-righteous w-fit">Ian Streator</h1>
-          <p className="font-bold">Web Developer</p>
+          <h1 className="text-4xl w-fit">Ian Streator</h1>
+          <p className="font-bold font-sans">Web Developer</p>
         </div>
       </div>
 
       <div className="p-4 pb-0">
         <div className="justify-between flex flex-col lg:flex-row lg:w-full">
           <div className="p-8">
-            <h1 className="text-4xl w-fit pb-4 font-righteous">
-              7 day IDE activity
-            </h1>
+            <h1 className="text-4xl w-fit pb-4">7 day IDE activity</h1>
 
             <WakaCard data={languageData} />
           </div>
 
           <div className="flex flex-col p-8">
-            <h1 className="text-4xl w-fit pb-4 font-righteous">Projects</h1>
+            <h1 className="text-4xl w-fit pb-4">Projects</h1>
 
             <div className="flex flex-col lg:flex-wrap lg:flex-row lg:max-w-xs xl:max-w-2xl 2xl:max-w-5xl">
               {projects.map((project, i) => (
@@ -66,11 +64,14 @@ export default async function Home() {
         <div className="p-8 pb-0 flex flex-col justify-center lg:flex-row-reverse lg:justify-between">
           <div className="flex w-full justify-between pb-8 lg:items-end lg:flex-col lg:w-1/3">
             {contactItems.map(({ name, element }, i) => (
-              <div className="w-16 flex flex-col lg:w-fit lg:justify-start lg:flex-row-reverse justify-center items-center">
+              <div
+                key={i}
+                className="w-16 flex flex-col lg:w-fit lg:justify-start lg:flex-row-reverse justify-center items-center"
+              >
                 <div className="bg-theme-neutral/25 rounded-full w-fit mb-2 lg:mx-4 justify-center">
                   {element}
                 </div>
-                <p className="font-righteous">{name}</p>
+                <p>{name}</p>
               </div>
             ))}
           </div>

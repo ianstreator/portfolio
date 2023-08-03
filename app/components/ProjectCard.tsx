@@ -21,10 +21,10 @@ function ProjectCard({ title, githubHREF, siteHREF, stack }: ProjectData) {
   return (
     <div className="project-card bg-theme-neutral/25 z-0 mb-8 lg:mr-4 rounded-md flex flex-col overflow-hidden shadow-md ease-in duration-300">
       <div className="flex w-full">
-        <div className="w-3/5 bg-theme-accent text-center font-righteous p-2 rounded-br-md">
+        <div className="w-3/5 bg-theme-accent text-center p-2 rounded-br-md">
           {title}
         </div>
-        <div className="flex items-center w-2/5 justify-start font-bold">
+        <div className="flex items-center w-2/5 justify-start font-bold font-sans">
           <a
             rel="noreferrer"
             target="blank"
@@ -77,10 +77,7 @@ function ProjectCard({ title, githubHREF, siteHREF, stack }: ProjectData) {
             {stack.map((tech, i) => (
               <div key={i} className="my-1 relative flex justify-start">
                 {stackMap[tech]}
-                <div
-                  key={i}
-                  className="bg-gradient-to-r from-theme-accent from-25% to-theme-primary shadow-md w-fit h-full absolute top-0 -z-10 pl-1.5 pr-40 rounded-l-sm flex items-center text-xs font-bold transition-all duration-300 hover:-ml-[5.75rem] pointer-events-auto"
-                >
+                <div className="bg-gradient-to-r from-theme-accent from-25% to-theme-primary shadow-md w-fit h-full absolute top-0 -z-10 pl-1.5 pr-40 rounded-l-sm flex items-center text-xs font-bold font-sans transition-all duration-300 hover:-ml-[5.75rem] pointer-events-auto">
                   {tech}
                 </div>
               </div>

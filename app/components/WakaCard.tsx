@@ -36,9 +36,9 @@ function WakaCard({ data }: languageStats) {
               key={i}
               className="p-2 pt-1 h-24 flex flex-col justify-between rounded-md bg-theme-accent"
             >
-              <p className="font-righteous">{name}</p>
-              <p>{`${percent}%`}</p>
-              <p>{text}</p>
+              <p>{name}</p>
+              <p className="font-sans font-medium">{`${percent}%`}</p>
+              <p className="font-sans font-medium">{text}</p>
               <div
                 className="p-1 rounded-sm"
                 style={{

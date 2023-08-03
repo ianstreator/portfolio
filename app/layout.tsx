@@ -1,8 +1,11 @@
 import "./globals.css";
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Righteous } from "next/font/google";
 
-const inter = Inter({ subsets: ["latin"] });
+const righteous = Righteous({
+  weight: "400",
+  subsets: ["latin"],
+});
 
 export const metadata: Metadata = {
   title: "Ian Streator | Portfolio",
@@ -16,19 +19,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" data-theme={"space"}>
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link
-          rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossOrigin=""
-        />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Righteous&display=swap"
-          rel="stylesheet"
-        />
-      </head>
-      <body className={inter.className}>{children}</body>
+      <body className={righteous.className}>{children}</body>
     </html>
   );
 }

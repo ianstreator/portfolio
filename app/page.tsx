@@ -38,7 +38,7 @@ export default async function Home() {
       <div className="w-full mt-4 bg-gradient-to-r from-theme-neutral/25 to-theme-neutral/0">
         <div className="w-fit p-4">
           <h1 className="text-4xl w-fit">Ian Streator</h1>
-          <p className="font-bold font-sans">Web Developer</p>
+          <p className="font-bold font-sans">Software Developer</p>
         </div>
       </div>
 

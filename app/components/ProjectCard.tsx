@@ -61,7 +61,7 @@ function ProjectCard({ title, githubHREF, siteHREF, stack }: ProjectData) {
         </div>
       </div>
 
-      <div className="flex w-full grow pointer-events-none">
+      <div className="flex w-full justify-between grow pointer-events-none">
         <div className="w-3/5 p-3 flex items-center justify-center">
           <Image
             priority
@@ -75,7 +75,7 @@ function ProjectCard({ title, githubHREF, siteHREF, stack }: ProjectData) {
           ></Image>
         </div>
 
-        <div className="w-2/5 flex">
+        <div className="w-1/3 flex">
           <div className="w-1/2 bg-theme-accent ml-auto rounded-tl-3xl flex flex-col justify-start items-center p-2 relative">
             {stack.map((tech, i) => (
               <div key={i} className="my-1 relative flex justify-start">

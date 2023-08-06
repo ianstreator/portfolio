@@ -10,7 +10,7 @@ export type WakaData = {
 
 export type ProjectData = {
   title: string;
-  description: string;
+  description?: string;
   githubHREF?: string;
   siteHREF?: string;
   stack: string[];

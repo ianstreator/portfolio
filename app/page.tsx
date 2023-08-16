@@ -12,25 +12,29 @@ import WakaCard from "./components/WakaCard";
 export default async function Home() {
   const languageData = await fetchWakaTimeData();
   const contactIconSize = 30;
-  const footerArtSize = 300;
-  const profileSize = 250;
+  const footerImgSize = 300;
+  const avatarImgSize = 250;
 
   const contactItems = [
     {
       name: "Email",
-      element: <MdOutlineEmail size={contactIconSize} className="m-3" />,
+      href: "mailto: ianstreator@gmail.com",
+      icon: <MdOutlineEmail size={contactIconSize} className="m-3" />,
     },
     {
       name: "GitHub",
-      element: <AiFillGithub size={contactIconSize} className="m-3" />,
+      href: "https://github.com/ianstreator",
+      icon: <AiFillGithub size={contactIconSize} className="m-3" />,
     },
     {
       name: "Resume",
-      element: <BsFiletypePdf size={contactIconSize} className="m-3" />,
+      href: "/resume.pdf",
+      icon: <BsFiletypePdf size={contactIconSize} className="m-3" />,
     },
     {
       name: "LinkedIn",
-      element: <FaLinkedinIn size={contactIconSize} className="m-3" />,
+      href: "https://www.linkedin.com/in/ian-streator-4195021a7/",
+      icon: <FaLinkedinIn size={contactIconSize} className="m-3" />,
     },
   ];
 
@@ -41,8 +45,8 @@ export default async function Home() {
           <img
             src="/profile.webp"
             alt="profile"
-            width={profileSize}
-            height={profileSize}
+            width={avatarImgSize}
+            height={avatarImgSize}
           />
         </div>
 
@@ -73,14 +77,19 @@ export default async function Home() {
 
         <div className="px-8 flex flex-col justify-center lg:flex-row-reverse lg:justify-between">
           <div className="flex w-full justify-between pb-8 lg:items-end lg:flex-col lg:w-1/3">
-            {contactItems.map(({ name, element }, i) => (
+            {contactItems.map(({ name, href, icon }, i) => (
               <div
                 key={i}
                 className="w-16 flex flex-col lg:w-fit lg:justify-start lg:flex-row-reverse justify-center items-center"
               >
-                <div className="bg-theme-neutral/25 rounded-full w-fit mb-2 lg:mx-4 justify-center">
-                  {element}
-                </div>
+                <a
+                  rel="noreferrer"
+                  target={href.includes("mailto:") ? "_self" : "_blank"}
+                  href={href}
+                  className="bg-theme-neutral/25 rounded-full w-fit mb-2 lg:mx-4 justify-center"
+                >
+                  {icon}
+                </a>
                 <p>{name}</p>
               </div>
             ))}
@@ -90,8 +99,8 @@ export default async function Home() {
             <Image
               className="lg:w-full"
               src="/footer-art.svg"
-              width={footerArtSize}
-              height={footerArtSize}
+              width={footerImgSize}
+              height={footerImgSize}
               alt="footer-art"
             ></Image>
           </div>
@@ -111,9 +120,11 @@ const fetchWakaTimeData = async () => {
       `${BASE_URL}users/Ian19/stats/last_7_days?api_key=${WAKATIME_KEY}`,
       {
         signal: controller.signal,
+        cache: "no-cache",
       }
     );
     const wakaData = (await wakaRes.json()) as WakaData;
+
     return wakaData.data.languages;
   } catch (error) {
     throw error;

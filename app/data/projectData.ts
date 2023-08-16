@@ -1,12 +1,12 @@
 import { ProjectData } from "../../types";
 
 const projects: ProjectData[] = [
-  {
-    title: "JummJumm",
-    description: "Product catalog for an Asian consumables shop",
-    githubHREF: "https://github.com/ianstreator/jumm-jumm",
-    stack: ["Next", "Typescript", "Tailwind"],
-  },
+  // {
+  //   title: "JummJumm",
+  //   description: "Product catalog for an Asian consumables shop",
+  //   githubHREF: "https://github.com/ianstreator/jumm-jumm",
+  //   stack: ["Next", "Typescript", "Tailwind"],
+  // },
   {
     title: "Weather Quote",
     description: "A location-based weather app that generates a unique quote",
@@ -48,6 +48,13 @@ const projects: ProjectData[] = [
     description: "A game where you traverse Wikipedia pages",
     siteHREF: "https://www.wikle.io/",
     stack: ["Next", "Scss"],
+  },
+  {
+    title: "Portfolio",
+    description: "SPA to showcase my personal software projects",
+    githubHREF: "https://github.com/ianstreator/portfolio",
+    siteHREF: "#",
+    stack: ["Next", "Tailwind", "Typescript"],
   },
 ];
 

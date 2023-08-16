@@ -2,9 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
+body,
+html {
   color: #ffffff;
-  background-color: #0F172A;
+  background-color: #0f172a;
+  scroll-behavior: smooth;
 }
 
 .waka-card {

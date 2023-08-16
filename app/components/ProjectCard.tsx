@@ -44,7 +44,12 @@ function ProjectCard({ title, githubHREF, siteHREF, stack }: ProjectData) {
               GitHub
             </div>
           </a>
-          <a rel="noreferrer" target="blank" href={siteHREF} className="group">
+          <a
+            rel="noreferrer"
+            target={siteHREF === "#" ? "_self" : "blank"}
+            href={siteHREF}
+            className="group"
+          >
             <CgWebsite
               size={iconSize}
               opacity={!siteHREF ? 0.25 : undefined}

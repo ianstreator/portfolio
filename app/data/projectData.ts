@@ -1,12 +1,13 @@
 import { ProjectData } from "../../types";
 
 const projects: ProjectData[] = [
-  // {
-  //   title: "JummJumm",
-  //   description: "Product catalog for an Asian consumables shop",
-  //   githubHREF: "https://github.com/ianstreator/jumm-jumm",
-  //   stack: ["Next", "Typescript", "Tailwind"],
-  // },
+  {
+    title: "JummJumm",
+    description: "Product catalog for an Asian consumables shop",
+    githubHREF: "https://github.com/ianstreator/jumm-jumm",
+    siteHREF: "https://www.jummjumm.com/",
+    stack: ["Next", "Typescript", "Tailwind"],
+  },
   {
     title: "Weather Quote",
     description: "A location-based weather app that generates a unique quote",
@@ -27,22 +28,22 @@ const projects: ProjectData[] = [
   //   githubHREF: "https://github.com/ianstreator/photo-sort",
   //   stack: ["Next", "Typescript", "Scss"],
   // },
-  {
-    title: "Git-Streaks",
-    description:
-      "A simple and visual way to track your GitHub contribution activity",
-    githubHREF: "https://github.com/ianstreator/git-streaks",
-    siteHREF: "https://git-streaks.vercel.app/",
-    stack: ["React", "Tailwind"],
-  },
-  {
-    title: "Joe's Pizza",
-    description:
-      "A menu and facility information app for an Italian pizza shop",
-    githubHREF: "https://github.com/ianstreator/joes-pizza",
-    siteHREF: "https://joes-pizza-schaumburg.vercel.app/",
-    stack: ["Next", "Scss"],
-  },
+  // {
+  //   title: "Git-Streaks",
+  //   description:
+  //     "A simple and visual way to track your GitHub contribution activity",
+  //   githubHREF: "https://github.com/ianstreator/git-streaks",
+  //   siteHREF: "https://git-streaks.vercel.app/",
+  //   stack: ["React", "Tailwind"],
+  // },
+  // {
+  //   title: "Joe's Pizza",
+  //   description:
+  //     "A menu and facility information app for an Italian pizza shop",
+  //   githubHREF: "https://github.com/ianstreator/joes-pizza",
+  //   siteHREF: "https://joes-pizza-schaumburg.vercel.app/",
+  //   stack: ["Next", "Scss"],
+  // },
   {
     title: "Wikle",
     description: "A game where you traverse Wikipedia pages",
@@ -54,7 +55,7 @@ const projects: ProjectData[] = [
     description: "SPA to showcase my personal software projects",
     githubHREF: "https://github.com/ianstreator/portfolio",
     siteHREF: "#",
-    stack: ["Next", "Tailwind", "Typescript"],
+    stack: ["Next", "Typescript", "Tailwind"],
   },
 ];
 

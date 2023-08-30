@@ -68,8 +68,7 @@ function ProjectCard({ title, githubHREF, siteHREF, stack }: ProjectData) {
 
       <div className="flex w-full justify-between grow pointer-events-none">
         <div className="w-3/5 p-3 flex items-center justify-center">
-          <Image
-            priority
+          <img
             src={`/desktop-${title
               .replace("'", "")
               .replace(" ", "-")
@@ -77,7 +76,7 @@ function ProjectCard({ title, githubHREF, siteHREF, stack }: ProjectData) {
             width={200}
             height={200}
             alt={title}
-          ></Image>
+          ></img>
         </div>
 
         <div className="w-1/3 flex">

@@ -120,7 +120,9 @@ const fetchWakaTimeData = async () => {
       `${BASE_URL}users/Ian19/stats/last_7_days?api_key=${WAKATIME_KEY}`,
       {
         signal: controller.signal,
-        cache: "no-cache",
+        next: {
+          revalidate: 3600,
+        },
       }
     );
     const wakaData = (await wakaRes.json()) as WakaData;

@@ -15,27 +15,27 @@ const projects: ProjectData[] = [
     siteHREF: "https://next-weather-quote.vercel.app/",
     stack: ["Next", "Typescript", "Tailwind"],
   },
-  {
-    title: "Babble",
-    description: "A chat app with a passive translation feature",
-    githubHREF: "https://github.com/ianstreator/Babble",
-    siteHREF: "https://i-babble.herokuapp.com/",
-    stack: ["React", "Node", "Scss"],
-  },
+  // {
+  //   title: "Babble",
+  //   description: "A chat app with a passive translation feature",
+  //   githubHREF: "https://github.com/ianstreator/Babble",
+  //   siteHREF: "https://i-babble.herokuapp.com/",
+  //   stack: ["React", "Node", "Scss"],
+  // },
   // {
   //   title: "Asset Manager",
   //   description: "A visual tool for managing my photo database in Redis",
   //   githubHREF: "https://github.com/ianstreator/photo-sort",
   //   stack: ["Next", "Typescript", "Scss"],
   // },
-  // {
-  //   title: "Git-Streaks",
-  //   description:
-  //     "A simple and visual way to track your GitHub contribution activity",
-  //   githubHREF: "https://github.com/ianstreator/git-streaks",
-  //   siteHREF: "https://git-streaks.vercel.app/",
-  //   stack: ["React", "Tailwind"],
-  // },
+  {
+    title: "Git Streaks",
+    description:
+      "Keep tabs on your and your friends' GitHub activity effortlessly.",
+    githubHREF: "https://github.com/ianstreator/git-streaks",
+    siteHREF: "https://gitstreaks.com",
+    stack: ["React", "Tailwind"],
+  },
   // {
   //   title: "Joe's Pizza",
   //   description:

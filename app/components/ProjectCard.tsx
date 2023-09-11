@@ -4,7 +4,6 @@ import { FaReact, FaSass, FaNodeJs } from "react-icons/fa";
 import { TbBrandNextjs, TbBrandTypescript } from "react-icons/tb";
 import { BiLogoTailwindCss } from "react-icons/bi";
 import { ProjectData } from "../../types";
-import Image from "next/image";
 
 function ProjectCard({ title, githubHREF, siteHREF, stack }: ProjectData) {
   const iconSize = 30;

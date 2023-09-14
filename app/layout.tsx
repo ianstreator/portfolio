@@ -9,7 +9,8 @@ const righteous = Righteous({
 
 export const metadata: Metadata = {
   title: "Ian Streator | Portfolio",
-  description: "Ian Streator software development portfolio",
+  description:
+    "Ian Streator a self-taught developer with a passion for continuous learning and building intuitive solutions with software.",
 };
 
 export default function RootLayout({

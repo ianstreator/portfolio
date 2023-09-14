@@ -18,6 +18,7 @@ export default async function Home() {
   const contactItems = [
     {
       name: "Email",
+      title: "e-mail",
       href: "mailto: ianstreator@gmail.com",
       icon: <MdOutlineEmail size={contactIconSize} className="m-3" />,
     },

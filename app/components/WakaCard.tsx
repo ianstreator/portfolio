@@ -16,11 +16,13 @@ const colors: {
   Go: "#67E8F9",
 };
 const noColor = "#D4D4D8";
-const color = (name: string) => (colors[name] ? colors[name] : noColor);
+// const color = (name: string) => (colors[name] ? colors[name] : noColor);
 
 function WakaCard({ data }: languageStats) {
   const topThree = data.filter((_, i) => i < 3);
-  const gradient = topThree.map(({ name }) => color(name));
+  const gradient = topThree.map(({ name }) =>
+    colors[name] ? colors[name] : noColor
+  );
   return (
     <div className="bg-theme-neutral/25 shadow-md w-full h-full flex flex-col waka-card rounded-md p-4">
       <div className="grow flex flex-col justify-between">

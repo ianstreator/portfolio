@@ -9,10 +9,10 @@ const projects: ProjectData[] = [
     stack: ["Next", "Typescript", "Tailwind"],
   },
   {
-    title: "Weather Quote",
+    title: "Geocast",
     description: "A location-based weather app that generates a unique quote",
-    githubHREF: "https://github.com/ianstreator/next-weather",
-    siteHREF: "https://next-weather-quote.vercel.app/",
+    githubHREF: "https://github.com/ianstreator/geocast",
+    siteHREF: "https://geocast.vercel.app/",
     stack: ["Next", "Typescript", "Tailwind"],
   },
   // {

@@ -24,44 +24,44 @@ function ProjectCard({ title, githubHREF, siteHREF, stack }: ProjectData) {
           {title}
         </div>
         <div className="flex items-center w-2/5 justify-start font-bold font-sans">
-          <a
-            rel="noreferrer"
-            target="blank"
-            href={githubHREF}
-            className="group"
-          >
-            <AiFillGithub
-              size={iconSize}
-              opacity={!githubHREF ? 0.25 : undefined}
-              className="ml-3"
-            />
-            <div
-              className={`opacity-0 ${
-                githubHREF ? "group-hover:opacity-100" : undefined
-              } absolute bg-theme-accent text-xs rounded-md p-2 shadow-md z-50 pointer-events-none transition-all duration-300`}
+          {githubHREF ? (
+            <a
+              rel="noreferrer"
+              target="blank"
+              href={githubHREF}
+              title={`${title} github repo`}
+              className="group"
             >
-              GitHub
-            </div>
-          </a>
-          <a
-            rel="noreferrer"
-            target={siteHREF === "#" ? "_self" : "blank"}
-            href={siteHREF}
-            className="group"
-          >
-            <CgWebsite
-              size={iconSize}
-              opacity={!siteHREF ? 0.25 : undefined}
-              className="ml-3"
-            />
-            <div
-              className={`opacity-0 ${
-                siteHREF ? "group-hover:opacity-100" : undefined
-              } absolute bg-theme-accent text-xs rounded-md p-2 shadow-md z-50 pointer-events-none transition-all duration-300`}
+              <AiFillGithub size={iconSize} className="ml-3" />
+              {/* <div
+                className="opacity-0 group-hover:opacity-100
+                absolute bg-theme-accent text-xs rounded-md p-2 shadow-md z-50 pointer-events-none transition-all duration-300"
+              >
+                GitHub
+              </div> */}
+            </a>
+          ) : (
+            <AiFillGithub size={iconSize} opacity={0.25} className="ml-3" />
+          )}
+          {siteHREF ? (
+            <a
+              rel="noreferrer"
+              target={siteHREF === "#" ? "_self" : "_blank"}
+              href={siteHREF}
+              title={`${title} website`}
+              className="group"
+            >
+              <CgWebsite size={iconSize} className="ml-3" />
+              {/* <div
+              className="opacity-0 group-hover:opacity-100
+              absolute bg-theme-accent text-xs rounded-md p-2 shadow-md z-50 pointer-events-none transition-all duration-300"
             >
               Website
-            </div>
-          </a>
+            </div> */}
+            </a>
+          ) : (
+            <CgWebsite size={iconSize} opacity={0.25} className="ml-3" />
+          )}
         </div>
       </div>
 

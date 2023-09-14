@@ -24,16 +24,19 @@ export default async function Home() {
     {
       name: "GitHub",
       href: "https://github.com/ianstreator",
+      title: "ianstreator github",
       icon: <AiFillGithub size={contactIconSize} className="m-3" />,
     },
     {
       name: "Resume",
       href: "/resume.pdf",
+      title: "resume",
       icon: <BsFiletypePdf size={contactIconSize} className="m-3" />,
     },
     {
       name: "LinkedIn",
       href: "https://www.linkedin.com/in/ian-streator-4195021a7/",
+      title: "ianstreator LinkedIn",
       icon: <FaLinkedinIn size={contactIconSize} className="m-3" />,
     },
   ];
@@ -77,7 +80,7 @@ export default async function Home() {
 
         <div className="px-8 flex flex-col justify-center lg:flex-row-reverse lg:justify-between">
           <div className="flex w-full justify-between pb-8 lg:items-end lg:flex-col lg:w-1/3">
-            {contactItems.map(({ name, href, icon }, i) => (
+            {contactItems.map(({ name, href, title, icon }, i) => (
               <div
                 key={i}
                 className="w-16 flex flex-col lg:w-fit lg:justify-start lg:flex-row-reverse justify-center items-center"
@@ -86,6 +89,7 @@ export default async function Home() {
                   rel="noreferrer"
                   target={href.includes("mailto:") ? "_self" : "_blank"}
                   href={href}
+                  title={title}
                   className="bg-theme-neutral/25 rounded-full w-fit mb-2 lg:mx-4 justify-center"
                 >
                   {icon}

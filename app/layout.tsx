@@ -1,4 +1,5 @@
 import "./globals.css";
+import { Analytics } from "@vercel/analytics/react"
 import type { Metadata } from "next";
 import { Righteous } from "next/font/google";
 
@@ -20,7 +21,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" data-theme={"space"}>
-      <body className={righteous.className}>{children}</body>
+      <body className={righteous.className}>
+        {children}
+        <Analytics />
+      </body>
     </html>
   );
 }

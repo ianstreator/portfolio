@@ -62,11 +62,11 @@ export default async function Home() {
 
       <div className="p-4 pb-0">
         <div className="justify-between flex flex-col lg:flex-row lg:w-full">
-          <div className="p-8 pb-4">
+          {languageData.length ? <div className="p-8 pb-4">
             <h1 className="text-4xl w-fit pb-4">7 day IDE activity</h1>
 
             <WakaCard data={languageData} />
-          </div>
+          </div> : null}
 
           <div className="flex flex-col p-8 pb-4">
             <h1 className="text-4xl w-fit pb-4">Projects</h1>

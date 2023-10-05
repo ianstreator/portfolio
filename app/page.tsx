@@ -126,13 +126,14 @@ const fetchWakaTimeData = async () => {
       {
         signal: controller.signal,
         next: {
-          revalidate: 3600,
+          revalidate: 3600
         },
       }
     );
     const wakaData = (await wakaRes.json()) as WakaData;
 
     return wakaData.data.languages;
+
   } catch (error) {
     throw error;
   }

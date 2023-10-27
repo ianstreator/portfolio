@@ -29,16 +29,10 @@ function ProjectCard({ title, githubHREF, siteHREF, stack }: ProjectData) {
               rel="noreferrer"
               target="blank"
               href={githubHREF}
-              title={`${title} github repo`}
+              title="repo"
               className="group"
             >
               <AiFillGithub size={iconSize} className="ml-3" />
-              {/* <div
-                className="opacity-0 group-hover:opacity-100
-                absolute bg-theme-accent text-xs rounded-md p-2 shadow-md z-50 pointer-events-none transition-all duration-300"
-              >
-                GitHub
-              </div> */}
             </a>
           ) : (
             <AiFillGithub size={iconSize} opacity={0.25} className="ml-3" />
@@ -48,16 +42,10 @@ function ProjectCard({ title, githubHREF, siteHREF, stack }: ProjectData) {
               rel="noreferrer"
               target={siteHREF === "#" ? "_self" : "_blank"}
               href={siteHREF}
-              title={`${title} website`}
+              title="app"
               className="group"
             >
               <CgWebsite size={iconSize} className="ml-3" />
-              {/* <div
-              className="opacity-0 group-hover:opacity-100
-              absolute bg-theme-accent text-xs rounded-md p-2 shadow-md z-50 pointer-events-none transition-all duration-300"
-            >
-              Website
-            </div> */}
             </a>
           ) : (
             <CgWebsite size={iconSize} opacity={0.25} className="ml-3" />

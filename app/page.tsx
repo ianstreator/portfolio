@@ -18,26 +18,26 @@ export default async function Home() {
   const contactItems = [
     {
       name: "Email",
-      title: "e-mail",
+      title: "Email",
       href: "mailto: ianstreator@gmail.com",
       icon: <MdOutlineEmail size={contactIconSize} className="m-3" />,
     },
     {
       name: "GitHub",
+      title: "GitHub",
       href: "https://github.com/ianstreator",
-      title: "ianstreator github",
       icon: <AiFillGithub size={contactIconSize} className="m-3" />,
     },
     {
       name: "Resume",
+      title: "Resume",
       href: "/resume.pdf",
-      title: "resume",
       icon: <BsFiletypePdf size={contactIconSize} className="m-3" />,
     },
     {
       name: "LinkedIn",
+      title: "LinkedIn",
       href: "https://www.linkedin.com/in/ian-streator-4195021a7/",
-      title: "ianstreator LinkedIn",
       icon: <FaLinkedinIn size={contactIconSize} className="m-3" />,
     },
   ];
@@ -62,11 +62,13 @@ export default async function Home() {
 
       <div className="p-4 pb-0">
         <div className="justify-between flex flex-col lg:flex-row lg:w-full">
-          {languageData.length ? <div className="p-8 pb-4">
-            <h1 className="text-4xl w-fit pb-4">7 day IDE activity</h1>
+          {languageData.length ? (
+            <div className="p-8 pb-4">
+              <h1 className="text-4xl w-fit pb-4">7 day IDE activity</h1>
 
-            <WakaCard data={languageData} />
-          </div> : null}
+              <WakaCard data={languageData} />
+            </div>
+          ) : null}
 
           <div className="flex flex-col p-8 pb-4">
             <h1 className="text-4xl w-fit pb-4">Projects</h1>
@@ -126,14 +128,13 @@ const fetchWakaTimeData = async () => {
       {
         signal: controller.signal,
         next: {
-          revalidate: 3600
+          revalidate: 3600,
         },
       }
     );
     const wakaData = (await wakaRes.json()) as WakaData;
 
     return wakaData.data.languages;
-
   } catch (error) {
     throw error;
   }

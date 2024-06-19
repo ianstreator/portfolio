@@ -1,50 +1,46 @@
-import { WakaData } from "../types";
+import { WakaTimeData } from "../types";
 import projects from "./data/projectData";
 import Image from "next/image";
-import { AiFillGithub } from "react-icons/ai";
-import { MdOutlineEmail } from "react-icons/md";
-import { BsFiletypePdf } from "react-icons/bs";
-import { FaLinkedinIn } from "react-icons/fa";
+import { contactIconMap } from "./utils/reactIcons";
 
 import ProjectCard from "./components/ProjectCard";
-import WakaCard from "./components/WakaCard";
+import WakaTimeCard from "./components/WakaTimeCard";
 
 export default async function Home() {
-  const languageData = await fetchWakaTimeData();
-  const contactIconSize = 30;
+  const languageData = (await fetchWakaTimeData()).filter((_, i) => i < 3);
   const footerImgSize = 300;
   const avatarImgSize = 250;
 
   const contactItems = [
     {
       name: "Email",
-      title: "Email",
       href: "mailto: ianstreator@gmail.com",
-      icon: <MdOutlineEmail size={contactIconSize} className="m-3" />,
+      aria: "Click here to send Ian an email.",
+      icon: contactIconMap.email,
     },
     {
       name: "GitHub",
-      title: "GitHub",
       href: "https://github.com/ianstreator",
-      icon: <AiFillGithub size={contactIconSize} className="m-3" />,
+      aria: "Click here to visit Ian's GitHub in a new tab.",
+      icon: contactIconMap.github,
     },
     {
       name: "Resume",
-      title: "Resume",
       href: "/resume.pdf",
-      icon: <BsFiletypePdf size={contactIconSize} className="m-3" />,
+      aria: "Click here to open Ian's resume in a new tab.",
+      icon: contactIconMap.resume,
     },
     {
       name: "LinkedIn",
-      title: "LinkedIn",
       href: "https://www.linkedin.com/in/ian-streator-4195021a7/",
-      icon: <FaLinkedinIn size={contactIconSize} className="m-3" />,
+      aria: "Click here to visit Ian's LinkedIn in a new tab.",
+      icon: contactIconMap.linkedin,
     },
   ];
 
   return (
     <main className="flex min-h-screen bg-gradient-to-b from-theme-primary to-theme-secondary flex-col items-center overflow-hidden">
-      <div className="w-full h-32 my-4 mb-8 lg:mb-4 items-center overflow-visible flex bg-gradient-to-r from-theme-neutral/25 from-50% to-theme-neutral/0">
+      <header className="w-full h-32 my-4 mb-8 lg:mb-4 items-center overflow-visible flex bg-gradient-to-r from-theme-neutral/25 from-50% to-theme-neutral/0">
         <div className="rounded-full overflow-hidden -ml-10">
           <img
             src="/profile.webp"
@@ -58,33 +54,33 @@ export default async function Home() {
           <h1 className="text-4xl w-fit">Ian Streator</h1>
           <p className="font-bold font-sans">Software Developer</p>
         </div>
-      </div>
+      </header>
 
       <div className="p-4 pb-0">
-        <div className="justify-between flex flex-col lg:flex-row lg:w-full">
+        <section className="justify-between flex flex-col lg:flex-row lg:w-full">
           {languageData.length ? (
-            <div className="p-8 pb-4">
-              <h1 className="text-4xl w-fit pb-4">7 day IDE activity</h1>
+            <article className="p-8 pb-4 flex flex-col">
+              <h2 className="text-4xl w-fit pb-4">7 day IDE activity</h2>
 
-              <WakaCard data={languageData} />
-            </div>
+              <WakaTimeCard languages={languageData} />
+            </article>
           ) : null}
 
-          <div className="flex flex-col p-8 pb-4">
+          <article className="flex flex-col p-8 pb-4">
             <h1 className="text-4xl w-fit pb-4">Projects</h1>
 
-            <div className="flex flex-col lg:flex-wrap lg:flex-row lg:max-w-xs xl:max-w-2xl 2xl:max-w-5xl">
+            <ul className="flex flex-col lg:flex-wrap lg:flex-row lg:max-w-xs xl:max-w-2xl 2xl:max-w-5xl">
               {projects.map((project, i) => (
                 <ProjectCard key={i} {...project} />
               ))}
-            </div>
-          </div>
-        </div>
+            </ul>
+          </article>
+        </section>
 
-        <div className="px-8 flex flex-col justify-center lg:flex-row-reverse lg:justify-between">
-          <div className="flex w-full justify-between pb-8 lg:items-end lg:flex-col lg:w-1/3">
-            {contactItems.map(({ name, href, title, icon }, i) => (
-              <div
+        <footer className="px-8 flex flex-col justify-center lg:flex-row-reverse lg:justify-between">
+          <ul className="flex w-full justify-between pb-8 lg:items-end lg:flex-col lg:w-1/3">
+            {contactItems.map(({ name, href, icon, aria }, i) => (
+              <li
                 key={i}
                 className="w-16 flex flex-col lg:w-fit lg:justify-start lg:flex-row-reverse justify-center items-center"
               >
@@ -92,17 +88,18 @@ export default async function Home() {
                   rel="noreferrer"
                   target={href.includes("mailto:") ? "_self" : "_blank"}
                   href={href}
-                  title={title}
+                  title={name}
+                  aria-label={aria}
                   className="bg-theme-neutral/25 rounded-full w-fit mb-2 lg:mx-4 justify-center"
                 >
                   {icon}
                 </a>
                 <p>{name}</p>
-              </div>
+              </li>
             ))}
-          </div>
+          </ul>
 
-          <div className="flex items-center justify-center lg:justify-start">
+          <figure className="flex items-center justify-center lg:justify-start">
             <Image
               className="lg:w-full"
               src="/footer-art.svg"
@@ -110,8 +107,8 @@ export default async function Home() {
               height={footerImgSize}
               alt="footer-art"
             ></Image>
-          </div>
-        </div>
+          </figure>
+        </footer>
       </div>
     </main>
   );
@@ -123,7 +120,7 @@ const fetchWakaTimeData = async () => {
   const WAKATIME_KEY = process.env.WAKA_TIME_SECRET_KEY;
   setTimeout(() => controller.abort(), 5000);
   try {
-    const wakaRes = await fetch(
+    const wakaTimeRes = await fetch(
       `${BASE_URL}users/Ian19/stats/last_7_days?api_key=${WAKATIME_KEY}`,
       {
         signal: controller.signal,
@@ -132,9 +129,11 @@ const fetchWakaTimeData = async () => {
         },
       }
     );
-    const wakaData = (await wakaRes.json()) as WakaData;
+    const {
+      data: { languages },
+    } = (await wakaTimeRes.json()) as WakaTimeData;
 
-    return wakaData.data.languages;
+    return languages;
   } catch (error) {
     throw error;
   }

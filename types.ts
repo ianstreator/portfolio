@@ -1,11 +1,10 @@
-export type WakaData = {
-  data: {
-    languages: {
-        name:string;
-        percent:number;
-        text:string;
-    }[];
-  };
+export type WakaTimeLanguages = {
+  name: string;
+  percent: number;
+  text: string;
+}[];
+export type WakaTimeData = {
+  data: { languages: WakaTimeLanguages };
 };
 
 export type ProjectData = {
@@ -13,5 +12,5 @@ export type ProjectData = {
   description?: string;
   githubHREF?: string;
   siteHREF?: string;
-  stack: string[];
+  techStack: string[];
 };

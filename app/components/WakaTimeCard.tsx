@@ -3,33 +3,39 @@ import { WakaTimeLanguages } from "@/types";
 
 const defaultColor = "#D4D4D8";
 
-const hexColorCode = (name: string) =>
+const hexColorCode = (name: string): string =>
   technologies[name.toLowerCase()]?.hexColor || defaultColor;
 
-const computeGradientString = (languages: WakaTimeLanguages) => {
-  let gradientStop: number = 0;
-
+const buildGradientString = (languages: WakaTimeLanguages) => {
+  const buffer = 3.5;
+  let nextBufferedStop = 0;
+  let currentColorStop = 0;
   return languages
     .map(({ name, percent }, i) => {
-      const color: string = hexColorCode(name);
-      const stop: number = Math.floor(percent);
-      gradientStop += stop;
-      return ` ${color}${
-        i !== languages.length - 1 ? ` ${gradientStop}%` : ""
-      }`;
+      const color = hexColorCode(name);
+      const stop = Math.floor(percent);
+      currentColorStop += stop;
+
+      const fullPercentColor = `${color} ${currentColorStop - buffer}%`;
+      const bufferedPercentColor = `${color} ${nextBufferedStop}%`;
+      nextBufferedStop += stop + buffer;
+
+      return i == 0
+        ? fullPercentColor
+        : ` ${bufferedPercentColor}, ${fullPercentColor}`;
     })
     .join();
 };
 
 function WakaTimeCard({ languages }: { languages: WakaTimeLanguages }) {
-  const gradientString = computeGradientString(languages);
+  const gradientString = buildGradientString(languages);
   return (
     <div className="bg-theme-neutral/25 shadow-md w-full flex flex-col waka-card rounded-md p-4">
       <div className="grow flex flex-col justify-start">
         <div
           className="p-1 rounded-sm"
           style={{
-            backgroundImage: `linear-gradient(to right,${gradientString})`,
+            backgroundImage: `linear-gradient(to right, ${gradientString})`,
           }}
         ></div>
         <ul>

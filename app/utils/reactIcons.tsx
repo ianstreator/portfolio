@@ -3,23 +3,34 @@ import {
   FaSass as SassIcon,
   FaNodeJs as NodeIcon,
   FaJava as JavaIcon,
+  FaLinkedinIn as LinkedInIcon,
+  FaFigma as FigmaIcon,
+  FaGitAlt as GitIcon
 } from "react-icons/fa";
 import {
   TbBrandNextjs as NextIcon,
   TbBrandTypescript as TypeScriptIcon,
 } from "react-icons/tb";
-
+import { TbBrandVscode as VScodeIcon } from "react-icons/tb";
 import {
   BiLogoTailwindCss as TailwindIcon,
   BiLogoMongodb as MongodbIcon,
 } from "react-icons/bi";
-import { SiDaisyui as DaisyuiIcon } from "react-icons/si";
+import {
+  SiDaisyui as DaisyuiIcon,
+  SiJest as JestIcon,
+  SiRedis as RedisIcon,
+  SiContentful as ContentfulIcon,
+  SiPostgresql as PostgresqlIcon,
+  SiPostman as PostmanIcon,
+  SiDocker as DockerIcon
+} from "react-icons/si";
+
 import { technologies } from "./technologyConstants";
 
 import { AiFillGithub as GitHubIcon } from "react-icons/ai";
 import { MdOutlineEmail as EmailIcon } from "react-icons/md";
 import { BsFiletypePdf as ResumeIcon } from "react-icons/bs";
-import { FaLinkedinIn as LinkedInIcon } from "react-icons/fa";
 
 type IconMap = {
   [name: string]: React.JSX.Element;
@@ -67,5 +78,32 @@ export const techIconMap: IconMap = {
   ),
   [technologies.daisyui.displayName]: (
     <DaisyuiIcon size={ICON_SIZE} color={technologies.daisyui.hexColor} />
+  ),
+  [technologies.jest.displayName]: (
+    <JestIcon size={ICON_SIZE} color={technologies.jest.hexColor} />
+  ),
+  [technologies.redis.displayName]: (
+    <RedisIcon size={ICON_SIZE} color={technologies.redis.hexColor} />
+  ),
+  [technologies.contentful.displayName]: (
+    <ContentfulIcon size={ICON_SIZE} color={technologies.contentful.hexColor} />
+  ),
+  [technologies.figma.displayName]: (
+    <FigmaIcon size={ICON_SIZE} color={technologies.figma.hexColor} strokeWidth={.5} />
+  ),
+    [technologies.postgresql.displayName]: (
+    <PostgresqlIcon size={ICON_SIZE} color={technologies.postgresql.hexColor} />
+  ),
+  [technologies.vscode.displayName]: (
+    <VScodeIcon size={ICON_SIZE} color={technologies.vscode.hexColor} strokeWidth={1} />
+  ),
+  [technologies.postman.displayName]: (
+    <PostmanIcon size={ICON_SIZE} color={technologies.postman.hexColor} strokeWidth={.1} />
+  ),
+  [technologies.docker.displayName]: (
+    <DockerIcon size={ICON_SIZE} color={technologies.docker.hexColor} strokeWidth={.1} />
+  ),
+  [technologies.git.displayName]: (
+    <GitIcon size={ICON_SIZE} color={technologies.git.hexColor} strokeWidth={.1} />
   ),
 };

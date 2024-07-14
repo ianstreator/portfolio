@@ -1,13 +1,16 @@
-import { WakaTimeData } from "../types";
-import projects from "./data/projectData";
 import Image from "next/image";
+
+import { WakaTimeData, WakaTimeLanguages } from "../types";
 import { contactIconMap, techIconMap } from "./utils/reactIcons";
+import { technologies } from "./utils/technologyConstants";
+import projects from "./data/projectData";
 
 import ProjectCard from "./components/ProjectCard";
 import WakaTimeCard from "./components/WakaTimeCard";
 
-import testLanguages from "./data/wakatime.json";
-import { technologies } from "./utils/technologyConstants";
+let testLanguages: WakaTimeLanguages;
+if (process.env.NODE_ENV === "development")
+  testLanguages = require("./data/wakatime.json");
 
 const footerImgSize = 300;
 const avatarImgSize = 250;

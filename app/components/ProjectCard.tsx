@@ -3,6 +3,7 @@ import { CgWebsite as AppIcon } from "react-icons/cg";
 
 import { ProjectData } from "../../types";
 import { techIconMap, ICON_SIZE } from "../utils/reactIcons";
+import Image from "next/image";
 
 function ProjectCard({ title, githubHREF, siteHREF, techStack }: ProjectData) {
   const projectImageSize = 200
@@ -54,7 +55,7 @@ function ProjectCard({ title, githubHREF, siteHREF, techStack }: ProjectData) {
 
       <div className="flex w-full justify-between grow pointer-events-none">
         <div className="w-3/5 p-3 flex items-center justify-center">
-          <img
+          <Image
             src={`/desktop-${title
               .replace("'", "")
               .replace(" ", "-")
@@ -62,7 +63,7 @@ function ProjectCard({ title, githubHREF, siteHREF, techStack }: ProjectData) {
             width={projectImageSize}
             height={projectImageSize}
             alt=""
-          ></img>
+          ></Image>
         </div>
 
         <div className="w-1/3 flex">

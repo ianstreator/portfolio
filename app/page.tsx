@@ -57,7 +57,7 @@ export default async function Home() {
     <main className="flex min-h-screen bg-gradient-to-b from-theme-primary to-theme-secondary flex-col items-center overflow-hidden">
       <header className="w-full h-32 my-4 mb-8 lg:mb-4 items-center overflow-visible flex bg-gradient-to-r from-theme-neutral/25 from-50% to-theme-neutral/0">
         <div className="rounded-full overflow-hidden -ml-10">
-          <img
+          <Image
             src="/profile.webp"
             alt="profile"
             width={avatarImgSize}
@@ -77,9 +77,12 @@ export default async function Home() {
             <article className="flex flex-col p-8 pb-4">
               <h2 className="text-4xl w-fit pb-4">Toolkit</h2>
               <div className="p-4 flex flex-wrap justify-start container-width">
-                {toolkit.map(({ displayName }) => {
+                {toolkit.map(({ displayName }, i) => {
                   return (
-                    <div className="flex flex-col items-center m-1 min-w-fit w-16 h-16">
+                    <div
+                      key={i}
+                      className="flex flex-col items-center m-1 min-w-fit w-16 h-16"
+                    >
                       <span className="">{techIconMap[displayName]}</span>
                       <p className="text-xs pt-2">{displayName}</p>
                     </div>

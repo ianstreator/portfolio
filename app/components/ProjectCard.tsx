@@ -7,7 +7,7 @@ import { techIconMap, ICON_SIZE } from "../utils/reactIcons";
 function ProjectCard({ title, githubHREF, siteHREF, techStack }: ProjectData) {
   const projectImageSize = 200
   return (
-    <li className="project-card bg-theme-neutral/25 z-0 mb-8 lg:mr-4 rounded-md flex flex-col overflow-hidden shadow-md ease-in duration-300">
+    <li className="project-card bg-theme-neutral/25 z-0 mb-8 mx-auto rounded-md flex flex-col overflow-hidden shadow-md ease-in duration-300">
       <div className="flex w-full">
         <div className="w-3/5 bg-theme-accent text-center p-2 rounded-br-md">
           {title}

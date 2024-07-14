@@ -7,6 +7,7 @@
 
 # testing
 /coverage
+/app/data/wakatime.json
 
 # next.js
 /.next/

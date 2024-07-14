@@ -30,14 +30,16 @@ const buildGradientString = (languages: WakaTimeLanguages) => {
 function WakaTimeCard({ languages }: { languages: WakaTimeLanguages }) {
   const gradientString = buildGradientString(languages);
   return (
-    <div className="bg-theme-neutral/25 shadow-md w-full flex flex-col waka-card rounded-md p-4">
+    <div className="bg-theme-neutral/25 shadow-md w-full flex flex-col container-width rounded-md p-4">
       <div className="grow flex flex-col justify-start">
-        <div
-          className="p-1 rounded-sm"
-          style={{
-            backgroundImage: `linear-gradient(to right, ${gradientString})`,
-          }}
-        ></div>
+        {languages[1] && (
+          <div
+            className="p-1 rounded-sm"
+            style={{
+              backgroundImage: `linear-gradient(to right, ${gradientString})`,
+            }}
+          ></div>
+        )}
         <ul>
           {languages.map(({ name, percent, text }, i) => {
             return (

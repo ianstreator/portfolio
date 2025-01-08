@@ -1,10 +1,10 @@
-import { technologies } from "../utils/technologyConstants";
+import { assetProps } from "../utils/technologyConstants";
 import { WakaTimeLanguages } from "@/types";
 
 const defaultColor = "#D4D4D8";
 
 const hexColorCode = (name: string): string =>
-  technologies[name.toLowerCase()]?.hexColor || defaultColor;
+  assetProps[name.toLowerCase()]?.hexColor || defaultColor;
 
 const buildGradientString = (languages: WakaTimeLanguages) => {
   const buffer = 3.5;

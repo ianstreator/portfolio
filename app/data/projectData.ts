@@ -1,5 +1,5 @@
 import { ProjectData } from "../../types";
-import { technologies } from "../utils/technologyConstants";
+import { assetProps } from "../utils/technologyConstants";
 
 const projects: ProjectData[] = [
   {
@@ -9,9 +9,9 @@ const projects: ProjectData[] = [
     githubHREF: "https://github.com/ianstreator/jumm-jumm",
     siteHREF: "https://www.jummjumm.com/",
     techStack: [
-      technologies.next.displayName,
-      technologies.typescript.displayName,
-      technologies.tailwind.displayName,
+      assetProps.next.displayName,
+      assetProps.typescript.displayName,
+      assetProps.tailwind.displayName,
     ],
   },
   {
@@ -21,9 +21,42 @@ const projects: ProjectData[] = [
     githubHREF: "https://github.com/ianstreator/geocast",
     siteHREF: "https://geocast.vercel.app/",
     techStack: [
-      technologies.next.displayName,
-      technologies.typescript.displayName,
-      technologies.tailwind.displayName,
+      assetProps.next.displayName,
+      assetProps.typescript.displayName,
+      assetProps.tailwind.displayName,
+    ],
+  },
+  {
+    title: "Git Streaks",
+    description:
+      "An application for tracking consecutive day streaks of GitHub contributions.",
+    githubHREF: "https://github.com/ianstreator/git-streaks",
+    siteHREF: "https://gitstreaks.com",
+    techStack: [
+      assetProps.react.displayName,
+      assetProps.tailwind.displayName,
+      assetProps.daisyui.displayName,
+    ],
+  },
+  {
+    title: "Wikle",
+    description:
+      "A game where you traverse Wikipedia from point A to point B as fast and in as few moves as possible.",
+    siteHREF: "https://www.wikle.io/",
+    techStack: [
+      assetProps.next.displayName,
+      assetProps.sass.displayName,
+      assetProps.mongodb.displayName,
+    ],
+  },
+  {
+    title: "Portfolio",
+    description: "Ian Streator's portfolio of software projects.",
+    githubHREF: "https://github.com/ianstreator/portfolio",
+    techStack: [
+      assetProps.next.displayName,
+      assetProps.typescript.displayName,
+      assetProps.tailwind.displayName,
     ],
   },
   // {
@@ -39,18 +72,6 @@ const projects: ProjectData[] = [
   //   githubHREF: "https://github.com/ianstreator/photo-sort",
   //   techStack: [Tech.Next, Tech.Typescript, Tech.Scss],
   // },
-  {
-    title: "Git Streaks",
-    description:
-      "An application for tracking consecutive day streaks of GitHub contributions.",
-    githubHREF: "https://github.com/ianstreator/git-streaks",
-    siteHREF: "https://gitstreaks.com",
-    techStack: [
-      technologies.react.displayName,
-      technologies.tailwind.displayName,
-      technologies.daisyui.displayName,
-    ],
-  },
   // {
   //   title: "Joe's Pizza",
   //   description:
@@ -59,27 +80,6 @@ const projects: ProjectData[] = [
   //   siteHREF: "https://joes-pizza-schaumburg.vercel.app/",
   //   techStack: [Tech.Next, Tech.Scss],
   // },
-  {
-    title: "Wikle",
-    description:
-      "A game where you traverse Wikipedia from point A to point B as fast and in as few moves as possible.",
-    siteHREF: "https://www.wikle.io/",
-    techStack: [
-      technologies.next.displayName,
-      technologies.scss.displayName,
-      technologies.mongodb.displayName,
-    ],
-  },
-  {
-    title: "Portfolio",
-    description: "Ian Streator's portfolio of software projects.",
-    githubHREF: "https://github.com/ianstreator/portfolio",
-    techStack: [
-      technologies.next.displayName,
-      technologies.typescript.displayName,
-      technologies.tailwind.displayName,
-    ],
-  },
 ];
 
 export default projects;

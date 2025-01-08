@@ -1,54 +1,50 @@
 import Image from "next/image";
 
 import { WakaTimeData, WakaTimeLanguages } from "../types";
-import { contactIconMap, techIconMap } from "./utils/reactIcons";
-import { technologies } from "./utils/technologyConstants";
+import { iconMap } from "./utils/reactIcons";
+import { assetProps } from "./utils/technologyConstants";
 import projects from "./data/projectData";
 
 import ProjectCard from "./components/ProjectCard";
 import WakaTimeCard from "./components/WakaTimeCard";
 
-let testLanguages: WakaTimeLanguages;
+let exmapleLanguages: WakaTimeLanguages;
 if (process.env.NODE_ENV === "development")
-  testLanguages = require("./data/wakatime.json");
+  exmapleLanguages = require("./data/wakatime.json");
 
-const footerImgSize = 300;
-const avatarImgSize = 250;
+const FOOTER_ART_PX_SIZE = 300;
+const PROFILE_PICTURE_PX_SIZE = 250;
 
-const contactItems = [
+const FOOTER_CONTACT_ITEMS = [
   {
     name: "Email",
     href: "mailto: ianstreator@gmail.com",
     aria: "Click here to send Ian an email.",
-    icon: contactIconMap.email,
   },
   {
     name: "GitHub",
     href: "https://github.com/ianstreator",
     aria: "Click here to visit Ian's GitHub in a new tab.",
-    icon: contactIconMap.github,
   },
   {
     name: "Resume",
     href: "/resume.pdf",
     aria: "Click here to open Ian's resume in a new tab.",
-    icon: contactIconMap.resume,
   },
   {
     name: "LinkedIn",
     href: "https://www.linkedin.com/in/ian-streator-4195021a7/",
     aria: "Click here to visit Ian's LinkedIn in a new tab.",
-    icon: contactIconMap.linkedin,
   },
 ];
 
-const toolkit = [
-  technologies.figma,
-  technologies.vscode,
-  technologies.docker,
-  technologies.postman,
-  technologies.git,
-  technologies.contentful,
+const TOOLKIT_ICONS = [
+  assetProps.figma,
+  assetProps.vscode,
+  assetProps.docker,
+  assetProps.postman,
+  assetProps.git,
+  assetProps.contentful,
 ];
 
 export default async function Home() {
@@ -60,8 +56,8 @@ export default async function Home() {
           <Image
             src="/profile.webp"
             alt="profile"
-            width={avatarImgSize}
-            height={avatarImgSize}
+            width={PROFILE_PICTURE_PX_SIZE}
+            height={PROFILE_PICTURE_PX_SIZE}
           />
         </div>
 
@@ -77,13 +73,13 @@ export default async function Home() {
             <article className="flex flex-col p-8 pb-4">
               <h2 className="text-4xl w-fit pb-4">Toolkit</h2>
               <div className="p-4 flex flex-wrap justify-start container-width">
-                {toolkit.map(({ displayName }, i) => {
+                {TOOLKIT_ICONS.map(({ displayName }, i) => {
                   return (
                     <div
                       key={i}
                       className="flex flex-col items-center m-1 min-w-fit w-16 h-16"
                     >
-                      <span className="">{techIconMap[displayName]}</span>
+                      <span className="">{iconMap[displayName]}</span>
                       <p className="text-xs pt-2">{displayName}</p>
                     </div>
                   );
@@ -112,7 +108,7 @@ export default async function Home() {
 
         <footer className="px-8 flex flex-col justify-center lg:flex-row-reverse lg:justify-center">
           <ul className="flex w-full justify-between pb-8 lg:items-end lg:flex-col lg:w-1/3 container-width">
-            {contactItems.map(({ name, href, icon, aria }, i) => (
+            {FOOTER_CONTACT_ITEMS.map(({ name, href, aria }, i) => (
               <li
                 key={i}
                 className="w-16 flex flex-col lg:w-fit lg:justify-start lg:flex-row-reverse justify-center items-center"
@@ -123,9 +119,9 @@ export default async function Home() {
                   href={href}
                   title={name}
                   aria-label={aria}
-                  className="bg-theme-neutral/25 rounded-full w-fit mb-2 lg:mx-4 justify-center"
+                  className="bg-theme-neutral/25 rounded-full w-fit mb-2 p-2 lg:mx-4 justify-center"
                 >
-                  {icon}
+                  {iconMap[name]}
                 </a>
                 <p>{name}</p>
               </li>
@@ -136,8 +132,8 @@ export default async function Home() {
             <Image
               className="lg:w-full"
               src="/footer-art.svg"
-              width={footerImgSize}
-              height={footerImgSize}
+              width={FOOTER_ART_PX_SIZE}
+              height={FOOTER_ART_PX_SIZE}
               alt="footer-art"
             ></Image>
           </figure>
@@ -148,27 +144,24 @@ export default async function Home() {
 }
 
 const fetchWakaTimeData = async () => {
-  const controller = new AbortController();
-  const BASE_URL = "https://wakatime.com/api/v1/";
   const WAKATIME_KEY = process.env.WAKA_TIME_SECRET_KEY;
-  const environment = process.env.NODE_ENV;
+
+  const WAKA_BASE_URL = "https://wakatime.com/api/v1/";
+  const WAKA_ENDPOINT = `users/Ian19/stats/last_7_days?api_key=${WAKATIME_KEY}`;
+
+  const controller = new AbortController();
   setTimeout(() => controller.abort(), 5000);
+
   try {
-    const wakaTimeRes = await fetch(
-      `${BASE_URL}users/Ian19/stats/last_7_days?api_key=${WAKATIME_KEY}`,
-      {
-        signal: controller.signal,
-        next: {
-          revalidate: 3600,
-        },
-      }
-    );
+    const wakaTimeRes = await fetch(WAKA_BASE_URL + WAKA_ENDPOINT, {
+      signal: controller.signal,
+      next: {
+        revalidate: 3600,
+      },
+    });
     let {
       data: { languages },
-    } = (await wakaTimeRes.json()) as WakaTimeData;
-
-    if (environment === "development" && !languages[0])
-      languages = testLanguages;
+    }: WakaTimeData = await wakaTimeRes.json();
 
     return languages;
   } catch (error) {
